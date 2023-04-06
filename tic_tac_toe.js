@@ -8,6 +8,12 @@ function initBoard() {
 // Displays the current state of the board in the console
 function displayBoard(board) {
   // Your code here
+  board.forEach((element, index) => {
+    console.log(`${element[0]} | ${element[1]} | ${element[2]}`);
+    if (index != board.length-1) {
+      console.log("---------");
+    }
+  })
 }
 
 // Places the player's move on the board if the chosen cell is unoccupied
