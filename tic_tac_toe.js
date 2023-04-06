@@ -1,7 +1,7 @@
 // Initializes and returns an empty 3x3 Tic Tac Toe board
 function initBoard() {
   // Your code here
-  const board = Array(3).fill(Array(3).fill(""));
+  const board = Array(3).fill(Array(3).fill(" "));
   return board;
 }
 
