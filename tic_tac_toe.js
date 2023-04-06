@@ -1,6 +1,8 @@
 // Initializes and returns an empty 3x3 Tic Tac Toe board
 function initBoard() {
   // Your code here
+  board = Array(3).fill(Array(3).fill(""));
+  return board;
 }
 
 // Displays the current state of the board in the console
