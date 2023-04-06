@@ -1,7 +1,14 @@
 // Initializes and returns an empty 3x3 Tic Tac Toe board
 function initBoard() {
   // Your code here
-  const board = Array(3).fill(Array(3).fill(" "));
+  const board = [];
+  for (let i = 0 ; i < 3 ; i++){
+    let row = [];
+    for (let j = 0 ; j < 3 ; j++){
+      row.push(" ")
+    }
+    board.push(row)
+  }
   return board;
 }
 
@@ -20,6 +27,8 @@ function displayBoard(board) {
 // Returns true if the move is valid, false otherwise
 function makeMove(board, row, col, player) {
   // Your code here
+  board[row][col] = player;
+  return board;
 }
 
 // Checks if the given player has won the game
