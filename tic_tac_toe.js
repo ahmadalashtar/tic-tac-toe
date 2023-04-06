@@ -27,8 +27,11 @@ function displayBoard(board) {
 // Returns true if the move is valid, false otherwise
 function makeMove(board, row, col, player) {
   // Your code here
-  board[row][col] = player;
-  return board;
+  if (board[row][col] === " "){
+    board[row][col] = player;
+    return true;
+  } 
+  return false;
 }
 
 // Checks if the given player has won the game
