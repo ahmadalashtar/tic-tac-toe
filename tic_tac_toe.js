@@ -93,8 +93,23 @@ function checkForWin(board, player) {
 // Checks if the game has ended in a draw
 // Returns true if the game is a draw, false otherwise
 function checkForDraw(board) {
-  // Your code here
+  let players = ["X","O"];
+  let winningResults = players.map((element)=>checkForWin(board,element));
+  let fullBoard = true;
+  board.forEach((element)=>element.forEach(
+    (e)=>{
+      if (e === " "){
+        fullBoard = false;
+      }
+    }
+  ));
+  let winnerExists = winningResults.reduce((acc,element)=> acc || element)
+  if (winnerExists) {
+    return false;
+  } 
+  return fullBoard
 }
+
 
 
 
