@@ -37,8 +37,58 @@ function makeMove(board, row, col, player) {
 // Checks if the given player has won the game
 // Returns true if the player has won, false otherwise
 function checkForWin(board, player) {
-  // Your code here
+  function getWinningString(board, player){
+    let winningString = "";  
+    board.forEach(() => winningString+=player);
+    return winningString;
+  }
+  let winningString = getWinningString(board,player);
+
+  function checkHorizontally(board, player, winningString){
+    let horizontalLines = board.map(
+      (element)=> element.reduce(
+        (acc,e)=> acc+e
+      )
+    )
+    return hasWinningString(horizontalLines, winningString)
+  }
+  function checkVertically(board,player, winningString){
+    let verticalLines = board.map(
+      (element,index)=> {
+        let cell = "";
+        for (let i = 0 ; i < board.length ; i++){
+          cell+= board[i][index];
+        }
+        return cell;
+      }
+    )
+    return hasWinningString(verticalLines,winningString)
+  }
+  function checkDiagonally(board,player,winningString){
+    let diagonalLines = [];
+    let firstDiag = "";
+    let secondDiag = "";
+    for (let i = 0 ; i < board.length; i++){
+      firstDiag  += board[i][i];
+      secondDiag += board[i][board.length-1-i];
+    }
+    diagonalLines = [firstDiag, secondDiag]
+    return hasWinningString(diagonalLines,winningString);
+  }
+  function hasWinningString(lines,winningString){
+    if (lines.indexOf(winningString) > -1){
+      return true;
+    }
+    return false;
+  }
+  
+  let horizontalResult = checkHorizontally(board,player,winningString);
+  let verticalResult = checkVertically(board,player,winningString);
+  let diagonalResult = checkDiagonally(board,player,winningString);
+
+  return (horizontalResult || verticalResult || diagonalResult);
 }
+
 
 // Checks if the game has ended in a draw
 // Returns true if the game is a draw, false otherwise
