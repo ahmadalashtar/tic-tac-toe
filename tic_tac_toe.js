@@ -120,3 +120,23 @@ module.exports = {
   checkForWin,
   checkForDraw
 };
+
+function gameLoop(){
+  // alternate
+  // ask for move
+  // make move update the game board
+  
+}
+
+function startGame(){
+  let board = initBoard();
+  // start the game loop
+  // handle the end of the game (after the game end, display board, win or draw)
+}
+
+function playGame(){
+  // handles the game loop 
+  // manages player input using the readline-sync library. (promt)
+}
+
+playGame();
